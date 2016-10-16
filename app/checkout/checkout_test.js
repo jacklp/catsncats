@@ -2,7 +2,7 @@
 
 describe('myApp.view1 module', function() {
 
-  beforeEach(module('myApp.chekout'));
+  beforeEach(module('myApp.checkout'));
 
   describe('checkout controller', function(){
 
