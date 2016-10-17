@@ -1,0 +1,15 @@
+<p>{{test}}</p>
+<input type="search" ng-model="q" placeholder="filter friends..." aria-label="filter friends" />
+<ul class="example-animate-container">
+    <li class="animate-repeat product-container" ng-repeat="product in products | filter:q as results">
+
+        <div class="col-xs-6 col-md-4">
+            <div class="title-container">{{product.name}}</div>
+            <div class="price">price</div>
+            <img src="http://placekitten.com/100/300"/>
+        </div>
+    </li>
+    <li class="animate-repeat" ng-if="results.length === 0">
+        <strong>No results found...</strong>
+    </li>
+</ul>
