@@ -18,7 +18,9 @@ see /shared/products.html
 ## Responsive layout implemented with the bootstrap css framework.
 
 container-fluid and 2-col/3-col layout depending on browser size.
+
 ![2-col layout](https://raw.githubusercontent.com/jacklp/catsncats/master/screenshots/2col.png)
+
 ![3-col layout](https://raw.githubusercontent.com/jacklp/catsncats/master/screenshots/3col.png)
 
 ## Visualisations Section Coming Soon!
