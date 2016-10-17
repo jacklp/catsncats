@@ -1,0 +1,30 @@
+.product-container{
+    list-style: none;
+    //overflow:hidden;
+    //min-width:330px;
+}
+
+.product-container>div{
+    padding:10px 0 0 0;
+}
+.product-container .price{
+    font-size:18px;
+}
+
+.product-container .product-image{
+    width: 100%;
+    height:150px;
+    background-image: url('http://placekitten.com/350/250');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.product-container .stock-container{
+    color: #7c1813;
+}
+
+.product-center{
+    display: table;
+    margin: 0 auto;
+
+}

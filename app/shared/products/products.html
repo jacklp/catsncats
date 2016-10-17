@@ -1,0 +1,15 @@
+<input type="search" ng-model="q" placeholder="filter products..." aria-label="filter products" />
+<ul class="example-animate-container list-group">
+    <li class="col-xs-6 col-md-4 animate-repeat product-container list-group-item" ng-repeat="product in products | filter:q as results">
+        <div class="product-center">
+            <div class="product-image"></div>
+            <div class="price"><strong>£{{product.pricings[0].amount}}</strong></div>
+            <div ng-if="product.in_stock !== null" class="stock-container">In stock</div>
+            <div class="title-container"><a href="#">{{product.name}}</a></div>
+            <div class="available-container">Next Available: {{product.next_available}}</div>
+        </div>
+    </li>
+    <li class="animate-repeat" ng-if="results.length === 0">
+        <strong>No results found...</strong>
+    </li>
+</ul>

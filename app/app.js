@@ -4,7 +4,4 @@
 var myApp = angular.module('myApp', [
   'ngRoute',
   'myApp.checkout',
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/checkout'});
-}]);
+]);

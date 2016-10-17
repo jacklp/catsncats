@@ -1,38 +1,26 @@
-## Bloom & Wild frontend test
+## Angular 1.5 Tech Demo
 
-Hello! And welcome to the Bloom & Wild coding exercise. 
 
-We recommend you spend around 3-4 hours over this exercise, but how much time you take is up to you. Read through the brief below for details of what to do and what we're looking for.
+## Modular Design
 
-When you've finished please email sharon@bloomandwild.com and adam@bloomandwild.com and we'll arrange a time to discuss your work on the exercise. If you have any questions, just drop us an email. 
+Application makes use of Angular shared component modules to create re-usable views (e.g /shared/menu)
 
-## Test brief
 
-On our checkout we have a pricing calculator that factors in a few things:
-* The bouquet being selected
-* The amount of deliveries being requested
-* Any extra shipping costs
-* Date of delivery (not pictured below)
+## Angular HTML list filtering
 
-Please build a dynamic interface, similar to our [current checkout](https://www.bloomandwild.com/send-flowers), in Angular (and any other front end libraries or frameworks that you might find useful) that updates its pricing according to your selection.
+see /shared/products.html
+<input type="search" ng-model="q" placeholder="filter products..." aria-label="filter products" />
+<li class="col-xs-6 col-md-4 animate-repeat product-container list-group-item" ng-repeat="product in products | filter:q as results">
 
-The data needed is returned by the checkout/flowers-endpoint factory, this is a (scaled down) JSON representation of what our API actually returns, the bouquets you need to populate your checkout with are stored in the `collections[0].skus` array, inside each sku you can find pricing information in the `pricings` array (just pluck the pricing object for `quantity: 1` and use that) images are inside `default_bouquet` object.
 
-Feel free to adjust the design, but try to make it **clean and minimal**.
+## Responsive layout implemented with the bootstrap css framework.
 
-We'll be looking for things like:
-* A clean and simple solution
-* Done in a standard way
-* Good understanding of where to use libraries and where not to
+container-fluid and 2-col/3-col layout depending on browser size.
 
-Bonus points for:
-* Unit tests
-* Make days starting 23rd December ending 3rd January cost £3.50 more for the first delivery
 
-Sample design (minus some form of date picker which is required):
-![design](http://i.imgur.com/xXDJs0d.png)
+## Visualisations Section Coming Soon!
 
-## Setting up the project
 
-`npm install`
-Then to serve it `npm start` and navigate to [http://localhost:8000/app/index.html](http://localhost:8000/app/index.html), any questions please don't hesitate to ask us!
+## Run App
+
+Then to serve it `npm start` and navigate to [http://localhost:8000/app/index.html](http://localhost:8000/app/index.html)
