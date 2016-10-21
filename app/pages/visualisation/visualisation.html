@@ -1,6 +1,8 @@
 <menu class="menu-container"></menu>
 <div class="container-fluid visualisation-container">
     <h1 class="page-title">{{header}}</h1>
+    <p><em>data taken from https://www.reddit.com/r/aww.json and combined with https://www.reddit.com/user/[AUTHOR]/about.json</em></p>
+    <bargraph value="vm.authors"></bargraph>
     <div data-ng-repeat="i in authors">
         <p>{{i}}</p>
     </div>

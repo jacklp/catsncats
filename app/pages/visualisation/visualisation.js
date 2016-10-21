@@ -7,11 +7,11 @@ angular.module('myApp.visualisation', [
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/visualisation', {
         templateUrl: 'pages/visualisation/visualisation.html',
-        controller: 'Visualisation'
+        controller: 'Visualisation as vm'
     });
 }])
-
-.controller('Visualisation', ['$scope', 'FlowersEndpoint', 'authors', 'users', function($scope, FlowersEndpoint, authors, users) {
+.controller('Visualisation', ['$scope', 'FlowersEndpoint', 'authors', 'users', '$rootScope', function($scope, FlowersEndpoint, authors, users, $rootScope) {
+    var vm = this;
     $scope.header = "Visualisations";
     authors.getAuthors().then(function(redditAww){
 
@@ -29,7 +29,9 @@ angular.module('myApp.visualisation', [
 
         }, authorsArray, users);
 
-       $scope.authors = authorsArray;
+        $scope.authors = authorsArray;
+        vm.authors = $scope.authors;
+        $rootScope.$broadcast('authors-gathered');
     });
 }])
 
@@ -61,7 +63,6 @@ angular.module('myApp.visualisation', [
 
 
     this.getAbout = function(author){
-        console.log('https://www.reddit.com/user/' + author + '/about.json');
         return $http.get('https://www.reddit.com/user/' + author + '/about.json')
             .then(function (response) {
                 // promise is fulfilled
