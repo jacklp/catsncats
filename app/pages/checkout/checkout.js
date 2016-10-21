@@ -9,7 +9,7 @@ angular.module('myApp.checkout', [
     controller: 'Checkout'
   });
 }])
-.controller('Checkout', ['$scope', 'FlowersEndpoint', function($scope, FlowersEndpoint) {
-  $scope.checkoutCopy = "Bloom and Cats";
-  $scope.header = "Products";
+.controller('Checkout', ['$scope', 'FlowersEndpoint', function($scope, FlowersEndpoint, _) {
+  $scope.checkoutCopy = "Cats N' Cats";
+  $scope.header = "Products"
 }])

@@ -1,7 +1,7 @@
 myApp.
 config(['$routeProvider', function($routeProvider) {
     $routeProvider
-        .when("/visualisation", {
+        .when("/app/index.html#/visualisation", {
             templateUrl : "/visualisation"
         })
     $routeProvider.otherwise({redirectTo: '/checkout'});
