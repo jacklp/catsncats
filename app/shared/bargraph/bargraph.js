@@ -7,18 +7,12 @@ angular.module('myApp.visualisation').component('bargraph', {
         var vm = this;
 
         // EVENT BINDING OVER GLOBAL SCOPE CAPTURES WHEN OUR PROMISE HAS RETURNED WITH DATA OVER API CALL
-        $rootScope.$on('authors-gathered', function () {
-
+        $rootScope.$on('new-author-pushed', function () {
 
             function getSeries(){
 
-                console.log(vm.value);
-
                 var series = [];
-                _.each(vm.value.authors, function(val){
-
-                    console.log(val);
-
+                _.each(vm.value, function(val){
                     series.push({
                         name: val.author,
                         data: [val.comment_karma, val.link_karma]

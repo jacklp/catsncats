@@ -13,25 +13,25 @@ angular.module('myApp.visualisation', [
 .controller('Visualisation', ['$scope', 'FlowersEndpoint', 'authors', 'users', '$rootScope', function($scope, FlowersEndpoint, authors, users, $rootScope) {
     var vm = this;
     $scope.header = "Visualisations";
+    vm.authors = [];
     authors.getAuthors().then(function(redditAww){
 
-        var authorsArray = [];
         _.each(redditAww.data.children, function(child){
 
             users.getAbout(child.data.author).then(function(about){
 
-                authorsArray.push({
+                vm.authors.push({
                     author: child.data.author,
                     link_karma: about.data.link_karma,
                     comment_karma: about.data.comment_karma
-                })
+                });
+
+                $rootScope.$broadcast('new-author-pushed');
+
             });
 
-        }, authorsArray, users);
+        });
 
-        $scope.authors = authorsArray;
-        vm.authors = $scope.authors;
-        $rootScope.$broadcast('authors-gathered');
     });
 }])
 
