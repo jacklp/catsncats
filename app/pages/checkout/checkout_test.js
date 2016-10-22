@@ -1,10 +1,20 @@
 'use strict';
 
-describe('myApp.view1 module', function() {
+describe('Checkout Controller', function(){
 
+  var FlowersEndPoint, scope, controller;
   beforeEach(module('myApp.checkout'));
 
-  describe('checkout controller', function(){
-    // write test to check that checkout controller has certain functionality.
+  beforeEach(inject(function (_FlowersEndpoint_, $controller, $rootScope) {
+    FlowersEndPoint = _FlowersEndpoint_;
+    scope = $rootScope.$new();
+    controller = $controller('Checkout', {
+      $scope: scope
+    });
+  }));
+
+  it('instantiated my controller correctly', function() {
+    expect(controller).toBeDefined();
   });
+
 });
