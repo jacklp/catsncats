@@ -2,65 +2,52 @@
 
 describe('Checkout Controller', function(){
 
-    var element, scope, controller, mocky, users;
+    var element, scope, controller, mocky, users, $q, $httpBackend;
     beforeEach(module('myApp.contacts'));
 
-    var usersData = [
-        {
-            "name": "leanne graham",
-            "email": "leanne@gmail.com",
-            "job": "web developer",
-            "location": "london",
-            "tag": "friends",
-            "avatar": "http://www.cbc.ca/smartestperson/content/image/avatar-placeholder.png"
-        },
-        {
-            "name": "ervin howell",
-            "email": "ervin@gmail.com",
-            "job": "tech lead",
-            "location": "london",
-            "tag": "friends",
-            "avatar": "http://www.cbc.ca/smartestperson/content/image/avatar-placeholder.png"
-        },{
-            "name": "clementine bauch",
-            "email": "clementine@gmail.com",
-            "job": "web developer",
-            "location": "liverpool",
-            "tag": "following",
-            "avatar": "http://www.cbc.ca/smartestperson/content/image/avatar-placeholder.png"
-        },{
-            "name": "chelsey dietrich",
-            "email": "chelsey@gmail.com",
-            "job": "baker",
-            "location": "london",
-            "tag": "family",
-            "avatar": "http://www.cbc.ca/smartestperson/content/image/avatar-placeholder.png"
-        },{
-            "name": "dennis schulist",
-            "email": "dennis@gmail.com",
-            "job": "pen tester",
-            "location": "manchester",
-            "tag": "acquaintance",
-            "avatar": "http://www.cbc.ca/smartestperson/content/image/avatar-placeholder.png"
-        }
-    ];
-
-    beforeEach(inject(function ( $controller, $compile,  $rootScope, _mocky_) {
+    beforeEach(inject(function ( $controller, $compile,  $rootScope, _mocky_, _$q_, _$httpBackend_) {
+        $httpBackend = _$httpBackend_;
         mocky = _mocky_;
         scope = $rootScope.$new();
-        spyOn(mocky, 'getContacts').and.callFake(function() {
-            return usersData;
+        $q = _$q_;
+
+
+        //scope.users = mocky.getContacts();
+    }));
+    afterEach(function() {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+    });
+
+    it('tests that my service promise calls the api and handles the "then"', function () {
+        var data;
+
+        $httpBackend
+            .when('GET', 'http://www.mocky.io/v2/580cd2d3100000a710540487')
+            .respond(200, { foo: 'bar' });
+
+        // set up a deferred
+        var deferred = $q.defer();
+        // get promise reference
+        var promise = deferred.promise;
+
+        // set up promise resolve callback
+        promise.then(function (response) {
+            data = response.foo;
+            //data = response.success;
         });
 
-        scope.users = mocky.getContacts();
-    }));
+        mocky.getContacts().then(function(response) {
+            // resolve our deferred with the response when it returns
+            deferred.resolve(response);
+        });
 
-    it('checks that mocky is available', function(){
-        expect(mocky).toBeDefined();
-    })
+        // force `$digest` to resolve/reject deferreds
+        $httpBackend.flush();
+        scope.$digest();
 
-    it('checks that the service returned the data ok', function(){
-        expect(mocky.getContacts()[0].name).toBe('leanne graham');
-    })
+        expect(data).toBe('bar');
+
+    });
 });
 
