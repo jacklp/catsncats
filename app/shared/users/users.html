@@ -1,12 +1,14 @@
 <ul class="example-animate-container list-group">
     <li  ng-mouseenter="options=true" ng-mouseleave="options=false" class="col-xs-6 col-md-4 animate-repeat product-container list-group-item" ng-repeat="user in users">
         <div class="user-center">
-            <p>{{user.name}}</p>
             <img src="{{user.avatar}}"/>
+            <p>{{user.name}}</p>
             <div class="user-overlay" ng-show="options">
-                <p>{{user.email}}</p>
-                <p>{{user.tag}}</p>
-                <p>{{user.location}}</p>
+                <div class="user-info">
+                    <p>{{user.email}}</p>
+                    <p>{{user.tag}}</p>
+                    <p>{{user.location}}</p>
+                </div>
             </div>
         </div>
     </li>
