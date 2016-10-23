@@ -2,6 +2,8 @@
 
 please make sure you have karma, jasmine, chrome-launcher and any other dependencies
 
+from the root directory of this project run:
+
 karma start karma.conf.js
 
 ## Installation
