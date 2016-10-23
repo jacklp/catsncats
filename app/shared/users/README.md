@@ -24,9 +24,6 @@ app.scss contains simple SASS styles, was compiled using the npm script inside /
 
 ## Screenshots
 
-3-col Demo
-
 ![3-col layout](https://raw.githubusercontent.com/jacklp/catsncats/master/screenshots/contacts-3-col.png)
 
-2-col Responsive Layout with mouse over on profile captured
 ![2-col layout](https://raw.githubusercontent.com/jacklp/catsncats/master/screenshots/contacts-2-col-with-mouse-over-info.png)
