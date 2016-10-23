@@ -1,62 +1,47 @@
 /* app css stylesheet */
-
 .some-class {
-  color: red;
-}
+  color: red; }
 
-.product-container{
-  list-style: none;
-//overflow:hidden;
-//min-width:330px;
-}
+.product-container {
+  list-style: none; }
 
-.product-container>div{
-  padding:10px 0 0 0;
-}
-.product-container .price{
-  font-size:18px;
-}
+.product-container > div {
+  padding: 10px 0 0 0; }
 
-.product-container .product-image{
+.product-container .price {
+  font-size: 18px; }
+
+.product-container .product-image {
   width: 100%;
-  height:150px;
-  background-image: url('http://placekitten.com/350/250');
+  height: 150px;
+  background-image: url("http://placekitten.com/350/250");
   background-repeat: no-repeat;
-  background-size: contain;
-}
+  background-size: contain; }
 
-.product-container .stock-container{
-  color: #7c1813;
-}
+.product-container .stock-container {
+  color: #7c1813; }
 
-.product-center{
+.product-center {
   display: table;
-  margin: 0 auto;
+  margin: 0 auto; }
 
-}
+.menu-container {
+  padding: 0px 20px; }
 
-.menu-container{
-  padding: 0px 20px;
-}
-
-.checkout-container{
-  background-color: #f3f3f3;
-}
+.checkout-container {
+  background-color: #f3f3f3; }
 
 .page-title {
   text-align: center;
-  color: #888888;
-}
+  color: #888888; }
 
-.user-center{
-  position: relative;
-}
+.user-center {
+  position: relative; }
 
-.user-overlay{
+.user-overlay {
   position: absolute;
   top: 0px;
   left: 0px;
   background-color: white;
   width: 100%;
-  height: 100%;
-}
+  height: 100%; }

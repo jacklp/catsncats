@@ -13,3 +13,13 @@ npm install
 npm start
 
 browser url: http://localhost:8000/app/index.html#/contacts
+
+## Sass
+
+app.scss contains simple SASS styles, was compiled using the npm script inside /package.json "build-css"
+
+## Screenshots
+
+![3-col layout](https://raw.githubusercontent.com/jacklp/catsncats/master/screenshots/contacts-3-col.png)
+
+![2-col layout](https://raw.githubusercontent.com/jacklp/catsncats/master/screenshots/contacts-2-col-with-mouse-over-info.png)
