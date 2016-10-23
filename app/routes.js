@@ -2,8 +2,10 @@ myApp.
 config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when("/app/index.html#/visualisation", {
-            templateUrl : "/visualisation"
-        })
-
-    $routeProvider.otherwise({redirectTo: '/checkout'});
+        templateUrl : "/visualisation"
+    })
+    .when("/app/index.html#/contacts", {
+        templateUrl : "/contacts"
+    })
+    .otherwise({redirectTo: '/checkout'});
 }]);

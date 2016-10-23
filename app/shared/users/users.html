@@ -1,0 +1,16 @@
+<ul class="example-animate-container list-group">
+    <li  ng-mouseenter="options=true" ng-mouseleave="options=false" class="col-xs-6 col-md-4 animate-repeat product-container list-group-item" ng-repeat="user in users">
+        <div class="user-center">
+            <p>{{user.name}}</p>
+            <img src="{{user.avatar}}"/>
+            <div class="user-overlay" ng-show="options">
+                <p>{{user.email}}</p>
+                <p>{{user.tag}}</p>
+                <p>{{user.location}}</p>
+            </div>
+        </div>
+    </li>
+    <li class="animate-repeat" ng-if="results.length === 0">
+        <strong>No results found...</strong>
+    </li>
+</ul>

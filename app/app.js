@@ -4,5 +4,6 @@
 var myApp = angular.module('myApp', [
   'ngRoute',
   'myApp.checkout',
-  'myApp.visualisation'
+  'myApp.visualisation',
+  'myApp.contacts'
 ]);

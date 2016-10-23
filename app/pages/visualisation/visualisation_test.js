@@ -2,7 +2,7 @@
 
 describe('Visualisation', function(){
 
-    var scope, controller, authorsFactory, usersFactory, rootScope;
+    var scope, controller, authorsFactory, rootScope;
     beforeEach(module('myApp.visualisation'));
 
     var authorsData = {
@@ -45,8 +45,7 @@ describe('Visualisation', function(){
         },
     ]
 
-    beforeEach(inject(function (_authors_, _users_, $rootScope, $controller) {
-        usersFactory = _users_;
+    beforeEach(inject(function (_authors_, $rootScope, $controller) {
         authorsFactory = _authors_;
         scope = $rootScope.$new();
         rootScope = $rootScope;
@@ -59,7 +58,7 @@ describe('Visualisation', function(){
             return authorsData;
         });
 
-        spyOn(usersFactory, 'getAbout').and.callFake(function() {
+        spyOn(authorsFactory, 'getAbout').and.callFake(function() {
             return usersData;
         });
 
@@ -72,7 +71,7 @@ describe('Visualisation', function(){
 
     //TEST USER FACTORY
     it('was instantiated correctly and returns data from reddit api', function(){
-        expect(usersFactory.getAbout()[0].author).toBe('Captain-Flannel');
+        expect(authorsFactory.getAbout()[0].author).toBe('Captain-Flannel');
     })
 
 });
