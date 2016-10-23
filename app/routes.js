@@ -4,5 +4,6 @@ config(['$routeProvider', function($routeProvider) {
         .when("/app/index.html#/visualisation", {
             templateUrl : "/visualisation"
         })
+
     $routeProvider.otherwise({redirectTo: '/checkout'});
 }]);

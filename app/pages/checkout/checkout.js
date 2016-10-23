@@ -10,6 +10,9 @@ angular.module('myApp.checkout', [
   });
 }])
 .controller('Checkout', ['$scope', 'FlowersEndpoint', function($scope, FlowersEndpoint, _) {
+  var vm = this;
+  vm.karmaTestVar = "test";
   $scope.checkoutCopy = "Cats N' Cats";
   $scope.header = "Products"
+
 }])

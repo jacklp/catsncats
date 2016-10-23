@@ -17,4 +17,11 @@ describe('Checkout Controller', function(){
     expect(controller).toBeDefined();
   });
 
+  it('has assigned the variable correctly', function(){
+    expect(controller.karmaTestVar).toBe('test');
+  });
+  it('has assigned the correct variable to scope', function (){
+    expect(scope.header).toBe('Products');
+  });
 });
+

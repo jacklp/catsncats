@@ -10,7 +10,7 @@ angular.module('myApp.visualisation', [
         controller: 'Visualisation as vm'
     });
 }])
-.controller('Visualisation', ['$scope', 'FlowersEndpoint', 'authors', 'users', '$rootScope', function($scope, FlowersEndpoint, authors, users, $rootScope) {
+.controller('Visualisation', ['$scope', 'authors', '$rootScope', function($scope, authors, $rootScope) {
     var vm = this;
     $scope.header = "Visualisations";
     vm.authors = [];
@@ -18,7 +18,7 @@ angular.module('myApp.visualisation', [
 
         _.each(redditAww.data.children, function(child){
 
-            users.getAbout(child.data.author).then(function(about){
+            authors.getAbout(child.data.author).then(function(about){
 
                 vm.authors.push({
                     author: child.data.author,
@@ -37,46 +37,39 @@ angular.module('myApp.visualisation', [
 
 .service("authors", function ($http, $q) {
 
-    var deferred = $q.defer();
+    var deferred1 = $q.defer();
+    var deferred2 = $q.defer();
 
     this.getAuthors= function () {
         return $http.get('https://www.reddit.com/r/aww.json')
             .then(function (response) {
                 // promise is fulfilled
-                deferred.resolve(response.data);
+                deferred1.resolve(response.data);
                 // promise is returned
-                return deferred.promise;
+                return deferred1.promise;
             }, function (response) {
                 // the following line rejects the promise
-                deferred.reject(response);
+                deferred1.reject(response);
                 // promise is returned
-                return deferred.promise;
+                return deferred1.promise;
             });
     };
-
-
-})
-
-.service("users", function ($http, $q) {
-
-    var deferred = $q.defer();
-
 
     this.getAbout = function(author){
         return $http.get('https://www.reddit.com/user/' + author + '/about.json')
             .then(function (response) {
                 // promise is fulfilled
-                deferred.resolve(response.data);
+                deferred2.resolve(response.data);
                 // promise is returned
-                return deferred.promise;
+                return deferred2.promise;
             }, function (response) {
                 // the following line rejects the promise
-                deferred.reject(response);
+                deferred2.reject(response);
                 // promise is returned
-                return deferred.promise;
+                return deferred2.promise;
             });
 
     }
 
 
-});
+})
