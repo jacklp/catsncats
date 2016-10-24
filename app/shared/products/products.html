@@ -1,7 +1,5 @@
-<input type="search" ng-model="q" placeholder="filter products..." aria-label="filter products" />
-<button ng-click="sortAlgorithm()">Click me!</button>
 <ul class="example-animate-container list-group">
-    <li class="col-xs-6 col-md-4 animate-repeat product-container list-group-item" ng-repeat="product in products | filter:q as results">
+    <li class="col-xs-6 col-md-4 animate-repeat product-container list-group-item" ng-repeat="product in products">
         <div class="product-center">
             <div class="product-image"></div>
             <div class="price"><strong>£{{product.pricings[0].amount}}</strong></div>
