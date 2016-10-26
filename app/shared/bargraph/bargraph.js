@@ -12,14 +12,13 @@ angular.module('myApp.visualisation').component('bargraph', {
             function getSeries(){
 
                 var series = [];
-                _.each(vm.value, function(val){
+                angular.forEach(vm.value, function(val){
                     series.push({
                         name: val.author,
                         data: [val.comment_karma, val.link_karma]
                     })
                 }, vm);
 
-                //console.log(series);
                 return series;
             }
 

@@ -16,7 +16,7 @@ angular.module('myApp.visualisation', [
     vm.authors = [];
     authors.getAuthors().then(function(redditAww){
 
-        _.each(redditAww.data.children, function(child){
+        angular.forEach(redditAww.data.children, function(child){
 
             authors.getAbout(child.data.author).then(function(about){
 
