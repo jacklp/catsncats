@@ -1,32 +1,23 @@
 angular.module('myApp.contacts')
     .component('users', {
         templateUrl: 'shared/users/users.html',
-        controller: ['$scope', 'mocky', function($scope, mocky){
+        controller: ['$scope', 'mocky', function($scope, mocky, $element){
 
-            mocky.getContacts().then(function(data){
-                $scope.users = data;
-            })
+            mocky.getContacts($scope);
 
         }]
     })
 
-    .service("mocky", function ($http, $q) {
+.service("mocky",
+    function ($http) {
 
-        var deferred1 = $q.defer();
-
-        this.getContacts= function () {
+        this.getContacts= function ($scope) {
             return $http.get('http://www.mocky.io/v2/580cd2d3100000a710540487')
                 .then(function (response) {
-                    // promise is fulfilled
-                    deferred1.resolve(response.data);
-                    // promise is returned
-                    return deferred1.promise;
+                    $scope.users = response.data;
                 }, function (response) {
-                    // the following line rejects the promise
-                    deferred1.reject(response);
-                    // promise is returned
-                    return deferred1.promise;
+                    $scope.users = [];
                 });
         };
-
-    })
+    }
+)

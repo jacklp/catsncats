@@ -11,19 +11,17 @@ angular.module('myApp.checkout')
         }]
     })
 
-// DEMONSTRATION OF KNOWLEDGE OF SERVICES AND PROMISES
 .service("sortingService", function ($q) {
     this.getAveragePrice = function (products) {
         return $q(function (resolve, reject) {
 
             var averagePriceArray = [];
 
-            //N.B - ARRAY BEING PASSED INTO THIS CLOSURE
-            _.each(products, function (product) {
+            angular.forEach(products, function(product){
 
                 var averagePrice = 0;
 
-                _.each(product.pricings, function (price) {
+                angular.forEach(product.pricings, function (price) {
                     averagePrice += parseInt(price.amount);
                 }, averagePrice);
 
