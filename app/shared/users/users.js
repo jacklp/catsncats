@@ -3,8 +3,9 @@ angular.module('myApp.contacts')
         templateUrl: 'shared/users/users.html',
         controller: ['$scope', 'mocky', function($scope, mocky, $element){
 
-            mocky.getContacts($scope);
-
+            this.$onInit = function () {
+                mocky.getContacts($scope);
+            }
         }]
     })
 
